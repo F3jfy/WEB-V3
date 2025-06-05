@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adam Fejfar - Portfolio</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+    <div class="navbar">
+        <img src="logo.png" alt="Logo">
+        <div>
+            <a href="index.html">Úvod</a>
+            <a href="index.html#about">O mně</a>
+            <a href="portfolio.html">Portfolio</a>
+            <a href="index.html#contact">Kontakt</a>
+        </div>
+    </div>
+
+    <header>
+        <div class="hero-image">
+            <h2>PORTFOLIO</h2>
+        </div>
+    </header>
+
+    <section class="gallery">
+        <div class="image-container">
+            <a href="#">
+                <img src="ktmgr.png" alt="Fotografie 4">
+                <div class="overlay">
+                    <div style="text-align: center; font-weight: bold;">FEJFY</div>
+                    <div style="text-align: center; font-weight: bold;">X</div>
+                    <div style="text-align: center; font-weight: bold;">JHCOLLECTION</div>
+                </div>
+            </a>
+        </div>
+        <div class="image-container">
+            <a href="petrol2024.html">
+                <img src="photo1.jpg" alt="Fotografie 1">
+                <div class="overlay">
+                    <div style="text-align: center; font-weight: bold;">FEJFY</div>
+                    <div style="text-align: center; font-weight: bold;">X</div>
+                    <div style="text-align: center; font-weight: bold;">PETROL PALACE</div>
+                </div>
+            </a>
+        </div>
+        
+        <div class="image-container">
+            <a href="911mouse.html">
+                <img src="photo2.jpg" alt="Fotografie 2">
+                <div class="overlay">
+                    <div style="text-align: center; font-weight: bold;">FEJFY</div>
+                    <div style="text-align: center; font-weight: bold;">X</div>
+                    <div style="text-align: center; font-weight: bold;">911_MOUSE</div>
+                </div>
+            </a>
+        </div>
+        
+        <div class="image-container">
+            <a href="#">
+                <img src="photo3.jpg" alt="Fotografie 3">
+                <div class="overlay">
+                    <div style="text-align: center; font-weight: bold;">FEJFY</div>
+                    <div style="text-align: center; font-weight: bold;">X</div>
+                    <div style="text-align: center; font-weight: bold;">KARU</div>
+                </div>
+            </a>
+        </div>
+        
+        <div class="image-container">
+            <a href="#">
+                <img src="photo4.jpg" alt="Fotografie 4">
+                <div class="overlay">
+                    <div style="text-align: center; font-weight: bold;">FEJFY</div>
+                    <div style="text-align: center; font-weight: bold;">X</div>
+                    <div style="text-align: center; font-weight: bold;">KRONGARAGE</div>
+                </div>
+            </a>
+        </div>
+    </section>
+    
+    
+    <footer>
+        &copy; 2025 Adam Fejfar
+    </footer>
+
+    <div class="lightbox" id="lightbox">
+        <img src="" alt="Zvětšená fotografie" id="lightbox-img">
+    </div>
+
+    <script>
+        document.getElementById('about-link').addEventListener('click', function(e) {
+            e.preventDefault();
+            document.getElementById('about').scrollIntoView({ behavior: 'smooth' });
+        });
+
+        document.getElementById('home-link').addEventListener('click', function(e) {
+            e.preventDefault();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        document.getElementById('contact-link').addEventListener('click', function(e) {
+            e.preventDefault();
+            document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
+        });
+
+        function openLightbox(imgSrc) {
+            const lightbox = document.getElementById('lightbox');
+            const lightboxImg = document.getElementById('lightbox-img');
+            lightboxImg.src = imgSrc;
+            lightbox.classList.add('active');
+            lightbox.onclick = function() {
+                lightbox.classList.remove('active');
+            }
+        }
+    </script>
+</body>
+</html>

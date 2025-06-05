@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>adamfejfar</title>
+    <link rel="stylesheet" href="index.css">
+    <script src="script.js"></script>
+</head>
+<body>
+    <div class="navbar">
+        <img src="logo.png" alt="Logo">
+        <div>
+            <a href="index.html" id="home-link">Úvod</a>
+            <a href="#about" id="about-link">O mně</a>
+            <a href="portfolio.html">Portfolio</a>
+            <a href="#contact" id="contact-link">Kontakt</a>
+        </div>
+    </div>
+
+    <header>
+        <div class="hero-image">
+            <h2>ADAM FEJFAR</h2>
+        </div>
+
+    </header>
+
+    <section class="about reveal" id="about"> <div class="about-content">
+        <img src="pp.jpg" alt="Profilová fotografie">
+        <div>
+            <h2>O mně</h2>
+            <p>Jmenuji se Adam Fejfar a jsem mladý a nadšený fotograf specializující se na fotografování automobilů, akcí a sportů. Fotografování se věnuji již 4 roky a mám 17 let.</p>
+            <p>Moje láska k fotografování začala v dětství, kdy jsem si všiml krásy a jedinečnosti každého okamžiku. Od té doby jsem se neustále zlepšoval a rozšiřoval své znalosti a dovednosti v oboru.</p>
+            <p>Mým cílem je vytvořit fotografie, které budou mít emocionální hodnotu a budou vám připomínat vzácné okamžiky po celý život. Jsem velmi detail-orientovaný a pečlivě pracuji na každém snímku, aby byl dokonalý.</p>
+            <p>Věřím, že kvalitní fotografie jsou výpovědí o našem životě a chci Vám pomoci uchovat si ty nejkrásnější momenty. Pokud hledáte fotografa, který vám nabídne profesionální služby a vytvoří pro vás nezapomenutelné fotografie, neváhejte se na mě obrátit.</p>
+        </div>
+    </div>
+    </section>
+
+    <section class="gallery reveal">
+        <div class="image-container"><img src="photo1.webp" alt="Fotografie 1" onclick="openLightbox('photo1.webp')"></div>
+        <div class="image-container"><img src="photo2.webp" alt="Fotografie 2" onclick="openLightbox('photo2.webp')"></div>
+        <div class="image-container"><img src="photo3.webp" alt="Fotografie 3" onclick="openLightbox('photo3.webp')"></div>
+        <div class="image-container"><img src="photo4.webp" alt="Fotografie 4" onclick="openLightbox('photo4.webp')"></div>
+        </section>
+        <section class="gallery reveal">
+        <div class="image-container"><img src="photo5.webp" alt="Fotografie 5" onclick="openLightbox('photo5.webp')"></div>
+        <div class="image-container"><img src="photo6.webp" alt="Fotografie 6" onclick="openLightbox('photo6.webp')"></div>
+        <div class="image-container"><img src="photo7.webp" alt="Fotografie 7" onclick="openLightbox('photo7.webp')"></div>
+        <div class="image-container"><img src="photo8.webp" alt="Fotografie 8" onclick="openLightbox('photo8.webp')"></div>
+        </section>
+        <section class="gallery reveal">
+        <div class="image-container"><img src="photo9.webp" alt="Fotografie 9" onclick="openLightbox('photo9.webp')"></div>
+        <div class="image-container"><img src="photo10.webp" alt="Fotografie 10" onclick="openLightbox('photo10.webp')"></div>
+        <div class="image-container"><img src="photo11.webp" alt="Fotografie 11" onclick="openLightbox('photo11.webp')"></div>
+        <div class="image-container"><img src="photo12.webp" alt="Fotografie 12" onclick="openLightbox('photo12.webp')"></div>
+    </section>
+
+
+    <div id="lightbox" class="lightbox">
+    <span id="lightbox-close" class="lightbox-close">&times;</span>
+    <div class="lightbox-content">
+     <img id="lightbox-img" class="lightbox-img" src="" alt="Preview">
+        </div>
+    </div>
+
+    
+    <div class="more-button-container">
+        <a href="portfolio.html" class="more-button">Chci vidět více</a>
+    </div>
+
+    <section class="contact reveal" id="contact">
+        <div class="contact-content">
+            <h2>Kontakt</h2>
+            <p>Telefon: +420 735 888 083</p>
+            <p>Email: <a href="mailto:info@adamfejfar.com">info@adamfejfar.com</a></p>
+        </div>
+    </section>
+
+    <footer>
+        &copy; 2025 Adam Fejfar
+    </footer>
+
+    <div class="lightbox" id="lightbox">
+        <img src="" alt="Zvětšená fotografie" id="lightbox-img">
+    </div>
+
+    <script>
+        document.getElementById('about-link').addEventListener('click', function(e) {
+            e.preventDefault();
+            document.getElementById('about').scrollIntoView({ behavior: 'smooth' });
+        });
+
+        document.getElementById('home-link').addEventListener('click', function(e) {
+            e.preventDefault();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        document.getElementById('contact-link').addEventListener('click', function(e) {
+            e.preventDefault();
+            document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
+        });
+
+        function openLightbox(imgSrc) {
+            const lightbox = document.getElementById('lightbox');
+            const lightboxImg = document.getElementById('lightbox-img');
+            lightboxImg.src = imgSrc;
+            lightbox.classList.add('active');
+            lightbox.onclick = function() {
+                lightbox.classList.remove('active');
+            }
+        }
+    </script>
+</body>
+</html>
