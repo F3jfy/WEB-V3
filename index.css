@@ -197,7 +197,7 @@ header {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    font-size: 3.5em;
+    font-size: 3.5em; /* Default font size for larger screens */
     color: white;
     text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.4);
     margin: 0;
@@ -208,12 +208,24 @@ header {
     border-radius: 12px;
     border: 1px solid rgba(255, 255, 255, 0.5);
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-    white-space: nowrap;
+    white-space: nowrap; /* Prevent text from wrapping on larger screens by default */
     overflow: hidden;
     text-overflow: ellipsis;
     max-width: 90%;
 }
 
+/* --- Media Query for Smaller Screens --- */
+@media (max-width: 500px) { /* Adjust this breakpoint as needed */
+    .hero-image h2 {
+        font-size: 2em; /* Smaller font size for better fit on very small screens */
+        white-space: normal; /* Allow text to wrap onto multiple lines */
+        padding: 15px 25px; /* Adjust padding for smaller sizes */
+        max-width: 95%; /* Give it a bit more room */
+        text-overflow: clip; /* Remove ellipsis if you want the full text to show */
+        overflow: visible; /* Ensure content is visible */
+        text-align: center; /* Center the wrapped text */
+    }
+}
 /* --- Gallery Section --- */
 .gallery {
     display: grid;
