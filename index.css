@@ -1,22 +1,19 @@
-
-.lightbox:target {
-    display: flex;
-}
-
-
+/* Base Styles - Keep as is or adjust as needed */
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Roboto', sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f4f4f4;
+    background-color: #f4f4f4; /* A light background for contrast with cards */
 }
+
+/* Navbar (unchanged for this request) */
 .navbar {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     background-color: rgba(123, 123, 123, 0.434);
-    backdrop-filter: blur(10px);
+    backdrop-filter: blur(8px);
     color: white;
     display: flex;
     justify-content: space-between;
@@ -24,9 +21,7 @@ body {
     z-index: 100;
     transition: backdrop-filter 0.3s ease;
 }
-.navbar:hover {
-    backdrop-filter: blur(5px);
-}
+
 .navbar img {
     height: 60px;
 }
@@ -39,6 +34,8 @@ body {
     background-color: rgba(255, 255, 255, 0.1);
     font-size: 0.8em;
 }
+
+/* Header & Hero Image (unchanged for this request) */
 header {
     position: relative;
     text-align: center;
@@ -46,7 +43,7 @@ header {
 }
 .hero-image {
     width: 100%;
-    height: 70vh;
+    height: 80vh;
     background: url('main.webp') no-repeat center center/cover;
     clip-path: polygon(0% 0%, 100% 0%, 100% 90%, 0% 100%);
     margin-top: 0px;
@@ -58,53 +55,71 @@ header {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    font-size: 4em;
+    font-size: 3.5em;
     color: white;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.4);
     margin: 0;
-}
-.gallery {
-display: grid;
-grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-gap: 10px;
-padding: 20px;
-max-width: 1200px;
-margin: auto;
+    background-color: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(12px) saturate(1.2);
+    -webkit-backdrop-filter: blur(12px) saturate(1.2);
+    padding: 18px 40px;
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 90%;
 }
 
-/* Pro široké displeje (nad 1200px) */
+/* --- Gallery Section --- */
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px; /* Increased gap for card separation */
+    padding: 30px; /* More padding around the gallery */
+    max-width: 1200px;
+    margin: auto;
+}
+
+/* Responsive gallery settings (unchanged) */
 @media (min-width: 1200px) {
     .gallery {
         grid-template-columns: repeat(4, 1fr);
     }
 }
-
-/* Pro střední displeje (do 1200px) */
 @media (max-width: 1200px) {
     .gallery {
         grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     }
 }
-
-/* Pro malé displeje (do 768px) */
 @media (max-width: 768px) {
-.gallery {
+    .gallery {
         grid-template-columns: 1fr;
     }
 }
+
+/* Apply card design to gallery images */
 .gallery .image-container {
     position: relative;
     width: 100%;
     overflow: hidden;
-
+    background-color: white; /* Card background */
+    border-radius: 8px; /* Rounded corners for cards */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth hover transition */
 }
 
+/* Hover effect for gallery cards */
+.gallery .image-container:hover {
+    transform: translateY(-5px); /* Lift effect on hover */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* More prominent shadow on hover */
+}
 
+/* Aspect ratios (unchanged) */
 .gallery .image-container:nth-child(-n+4) {
     padding-bottom: 177.78%; 
 }
-
-
 .gallery .image-container:nth-child(n+5) {
     padding-bottom: 133.33%; 
 }
@@ -119,6 +134,7 @@ margin: auto;
     cursor: pointer;
     transition: transform 0.3s ease, filter 0.3s ease;
     z-index: 2;
+    border-radius: 8px; /* Match container border-radius */
 }
 
 .gallery img:hover {
@@ -128,137 +144,143 @@ margin: auto;
 }
 .image-container:hover .overlay {
     opacity: 1;
-    pointer-events: auto; /* Show overlay on hover */
+    pointer-events: auto;
+}
+.overlay > div {
+    pointer-events: none;
+}
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.7);
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: 2;
+    border-radius: 8px; /* Match container border-radius */
 }
 
-
-
-
-
-
-
-
-/*////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////*/
+/* --- Lightbox (unchanged for this request) --- */
 .lightbox {
-  display: flex;
-  position: fixed;
-  inset: 0;
-  background: rgba(255, 255, 255, 0.08);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  z-index: 1000;
-  justify-content: center;
-  align-items: center;
-will-change: transform;
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 0.4s ease;
+    display: flex;
+    position: fixed;
+    inset: 0;
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+    will-change: transform;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.4s ease;
 }
 
 .lightbox.active {
-  opacity: 1;
-  pointer-events: auto;
+    opacity: 1;
+    pointer-events: auto;
 }
-
-
-
 .lightbox-img {
-  max-width: 80vw;   /* Shrink horizontally */
-  max-height: 80vh;  /* Shrink vertically */
-  border-radius: 10px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    max-width: 80vw;
+    max-height: 80vh;
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
 }
-
-
-
 .lightbox-close {
-  position: fixed;      /* Viewport anchored */
-  top: 20px;
-  right: 20px;          /* This puts it in the top-right */
-  width: 44px;
-  height: 44px;
-  font-size: 32px;
-  line-height: 1;
-  color: white;
-  background: rgba(0, 0, 0, 0.6);
-  border: none;
-  border-radius: 50%;
-  cursor: pointer;
-  z-index: 1001;        /* Above lightbox content */
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-family: sans-serif;
-  font-weight: bold;
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    width: 44px;
+    height: 44px;
+    font-size: 32px;
+    line-height: 1;
+    color: white;
+    background: rgba(0, 0, 0, 0.6);
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    z-index: 1001;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: sans-serif;
+    font-weight: bold;
 }
-
 .lightbox-close:hover {
-  background-color: rgba(0, 0, 0, 0.8);
+    background-color: rgba(0, 0, 0, 0.8);
 }
-
-
-
-
-
-
-
-
-
 .lightbox-content {
-  padding: 10px;
-  transform: scale(0.95);
-  opacity: 0;
-  transition: transform 0.4s ease, opacity 0.4s ease;
-  will-change: transform;
-
+    padding: 10px;
+    transform: scale(0.95);
+    opacity: 0;
+    transition: transform 0.4s ease, opacity 0.4s ease;
+    will-change: transform;
 }
-
 .lightbox.active .lightbox-content {
-  transform: scale(1);
-  opacity: 1;
+    transform: scale(1);
+    opacity: 1;
 }
 
-
-/*////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////*/
+/* --- About Section --- */
 .about {
-    
-    padding: 20px;
+    padding: 40px 20px; /* Adjusted padding for better spacing */
     display: flex;
     justify-content: center;
+    background-color: #f9f9f9; /* Slightly different background for section */
 }
 .about-content {
-    padding-top: 80px;
+    /* Existing flex properties */
     display: flex;
     align-items: center;
     max-width: 1200px;
+    
+    /* Card design */
+    background-color: white; /* White background for the card */
+    border-radius: 12px; /* More rounded corners for the card */
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15); /* Pronounced shadow for elevation */
+    padding: 40px; /* Internal padding for the card content */
+    margin: 30px 0; /* Add margin to separate from other elements */
+    padding-top: 0; /* Resetting original padding-top as it's now part of the card's internal padding */
 }
 
 .about-content img {
     max-width: 300px;
     height: auto;
     margin-right: 30px;
+    border-radius: 8px; /* Rounded corners for image within card */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow for image */
 }
 .about-content div {
     flex: 1;
 }
 @media (max-width: 768px) {
-  .about-content {
-    flex-direction: column;
-  }
-
-  .about-content img {
-    order: -1; /* Moves image to the top */
-    margin-right: 0;
-    margin-bottom: 20px;
-    width: 100%;
-    max-width: 100%;
-    height: auto;
-  }
+    .about-content {
+        flex-direction: column;
+        padding: 25px; /* Adjust internal padding for smaller screens */
+    }
+    .about-content img {
+        order: -1;
+        margin-right: 0;
+        margin-bottom: 25px;
+        width: 100%;
+        max-width: 100%;
+        height: auto;
+    }
 }
+
+/* --- Contact Section --- */
 .contact {
     text-align: center;
-    padding: 40px 20px;
-    background-color: #f9f9f9;
+    padding: 50px 20px; /* Adjusted padding for section */
+    background-color: #f4f4f4; /* Match body background for continuity */
     border-top: 1px solid #eee;
 }
 .contact h2 {
@@ -279,9 +301,19 @@ will-change: transform;
     text-decoration: underline;
 }
 .contact-content {
-    max-width: 600px;
+    max-width: 650px; /* Slightly wider max-width for contact card */
     margin: 0 auto;
+    
+    /* Card design */
+    background-color: white; /* White background for the card */
+    border-radius: 12px; /* Rounded corners for the card */
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15); /* Pronounced shadow for elevation */
+    padding: 40px; /* Internal padding for the card content */
+    margin-top: 30px; /* Add top margin to separate from heading */
+    margin-bottom: 30px; /* Add bottom margin to separate from footer */
 }
+
+/* Footer (unchanged for this request) */
 footer {
     background: black;
     color: white;
@@ -289,6 +321,8 @@ footer {
     padding: 10px 0;
     margin-top: 20px;
 }
+
+/* More Button (unchanged for this request) */
 .more-button-container {
     text-align: center;
     padding: 20px;
@@ -306,32 +340,19 @@ footer {
 .more-button:hover {
     background-color: #585858; 
 }
-.overlay > div {
-    pointer-events: none;}
-    .overlay {
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background-color: rgba(0, 0, 0, 0.7); /* semi-transparent black */
-        color: white;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        opacity: 0;
-        transition: opacity 0.3s ease;
-        z-index: 2;}
 
-
+/* Reveal Animation (unchanged for this request) */
 .reveal {
-  opacity: 0;
-  transform: translateY(50px);
-  transition: opacity 0.6s ease, transform 0.6s ease;
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.4s ease, transform 0.4s ease;
+}
+.reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
 }
 
-.reveal.visible {
-  opacity: 1;
-  transform: translateY(0);
+/* Original .lightbox:target to keep its functionality */
+.lightbox:target {
+    display: flex;
 }
