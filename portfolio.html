@@ -20,13 +20,21 @@
 </head>
 <body>
     <div class="navbar">
-        <img src="logo.png" alt="Logo">
-        <div>
-            <a href="index.html">Úvod</a>
+    <img src="logo.png" alt="Logo">
+    
+    <button class="hamburger" aria-label="Toggle navigation menu">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+    </button>
+
+    <ul class="nav-links">
+        <a href="index.html">Úvod</a>
             <a href="index.html#about">O mně</a>
             <a href="portfolio.html">Portfolio</a>
             <a href="index.html#contact">Kontakt</a>
-        </div>
+    </ul>
+</div>
     </div>
 
     <header>
@@ -37,7 +45,7 @@
 
     <section class="gallery">
         <div class="image-container">
-            <a href="#">
+            <a href="jhcollection.html">
                 <img src="ktmgr.webp" alt="Fotografie 4">
                 <div class="overlay">
                     <div style="text-align: center; font-weight: bold;">FEJFY</div>
@@ -69,12 +77,12 @@
         </div>
         
         <div class="image-container">
-            <a href="#">
+            <a href="zerostyle.html">
                 <img src="photo3.webp" alt="Fotografie 3">
                 <div class="overlay">
                     <div style="text-align: center; font-weight: bold;">FEJFY</div>
                     <div style="text-align: center; font-weight: bold;">X</div>
-                    <div style="text-align: center; font-weight: bold;">KARU</div>
+                    <div style="text-align: center; font-weight: bold;">ZEROSTYLE</div>
                 </div>
             </a>
         </div>
@@ -89,12 +97,30 @@
                 </div>
             </a>
         </div>
+
+        <div class="image-container">
+            <a href="#">
+                <img src="ret3.webp" alt="Fotografie 4">
+                <div class="overlay">
+                    <div style="text-align: center; font-weight: bold;">FEJFY</div>
+                    <div style="text-align: center; font-weight: bold;">X</div>
+                    <div style="text-align: center; font-weight: bold;">RETRONIUM</div>
+                </div>
+            </a>
+        </div>
     </section>
     
     
-    <footer>
-        &copy; 2025 Adam Fejfar
-    </footer>
+     <footer class="site-footer">
+  <div class="footer-content">
+    <p>&copy; 2025 Adam Fejfar · Všechna práva vyhrazena</p>
+    <div class="footer-socials">
+      <a href="https://www.instagram.com/photos_by_fejfy/?hl=cs" target="_blank" aria-label="Instagram">📸</a>
+      <a href="mailto:info@adamfejfar.com" aria-label="Email">✉️</a>
+      <a href="https://www.adamfejfar.com" target="_blank" aria-label="GitHub">💻</a>
+    </div>
+  </div>
+</footer>
 
     <div class="lightbox" id="lightbox">
         <img src="" alt="Zvětšená fotografie" id="lightbox-img">

@@ -7,52 +7,67 @@
     <link rel="stylesheet" href="index.css">
 </head>
 <body>
-    <div class="navbar">
-        <img src="logo.png" alt="Logo">
-        <div>
-            <a href="index.html">Úvod</a>
+     <div class="navbar">
+    <img src="logo.png" alt="Logo">
+    
+    <button class="hamburger" aria-label="Toggle navigation menu">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+    </button>
+
+    <ul class="nav-links">
+        <a href="index.html">Úvod</a>
             <a href="index.html#about">O mně</a>
             <a href="portfolio.html">Portfolio</a>
             <a href="index.html#contact">Kontakt</a>
-        </div>
-    </div>
+    </ul>
+</div>
 
     <header>
-        <div class="hero-image">
-            <h2>GT3 TOURING</h2>
-        </div>
+        <div class="hero-image" style="background-image: url('main911.webp');">
+    <h2>GT3 TOURING</h2>
+  </div>
     </header>
 
-    <section class="gallery">
-        <div class="image-container">
-            <img src="911.1.jpg" alt="Petrol 1" onclick="openLightbox('911.1.jpg')">
-        </div>
-        <div class="image-container">
-            <img src="911.2.jpg" alt="Petrol 2" onclick="openLightbox('911.2.jpg')">
-        </div>
-        <div class="image-container">
-            <img src="911.3.jpg" alt="Petrol 3" onclick="openLightbox('911.3.jpg')">
-        </div>
-        <div class="image-container">
-            <img src="911.4.jpg" alt="Petrol 4" onclick="openLightbox('911.4.jpg')">
-        </div>
-        <div class="image-container">
-            <img src="911.5.jpg" alt="Petrol 1" onclick="openLightbox('911.5.jpg')">
-        </div>
-        <div class="image-container">
-            <img src="911.6.jpg" alt="Petrol 2" onclick="openLightbox('911.6.jpg')">
-        </div>
-        <div class="image-container">
-            <img src="911.7.jpg" alt="Petrol 3" onclick="openLightbox('911.7.jpg')">
-        </div>
-        <div class="image-container">
-            <img src="911.8.jpg" alt="Petrol 4" onclick="openLightbox('911.8.jpg')">
-        </div>
-        </section>
+<section class="gallery-2">
+<div class="image-container tall"><img src="911.1.webp" alt="911.3" onclick="openLightbox('911.1.webp')"></div>
+<div class="image-container"><img src="911.4.webp" alt="911.4" onclick="openLightbox('911.4.webp')"></div>
+<div class="image-container tall"><img src="911.10.webp" alt="911.10" onclick="openLightbox('911.10.webp')"></div>
+<div class="image-container"><img src="911.3.webp" alt="911.1" onclick="openLightbox('911.3.webp')"></div>
+
+<div class="image-container"><img src="911.2.webp" alt="911.2" onclick="openLightbox('911.2.webp')"></div>
+<div class="image-container tall"><img src="911.5.webp" alt="911.5" onclick="openLightbox('911.5.webp')"></div>
+<div class="image-containe wide"><img src="main911.webp" alt="main911" onclick="openLightbox('main911.webp')"></div>
+
+<div class="image-container tall"><img src="911.6.webp" alt="911.6" onclick="openLightbox('911.6.webp')"></div>
+<div class="image-container tall"><img src="911.7.webp" alt="911.7" onclick="openLightbox('911.7.webp')"></div>
+<div class="image-container"><img src="911.8.webp" alt="911.8" onclick="openLightbox('911.8.webp')"></div>
+<div class="image-container tall"><img src="911.9.webp" alt="911.9" onclick="openLightbox('911.9.webp')"></div>
+
+<div class="image-container wide"><img src="911.11.webp" alt="911.11" onclick="openLightbox('911.11.webp')"></div>
+
+
+</section>
+
+
     
-    <footer>
-        &copy; 2025 Adam Fejfar
-    </footer>
+        <div id="lightbox" class="lightbox">
+    <span id="lightbox-close" class="lightbox-close">&times;</span>
+    <div class="lightbox-content">
+     <img id="lightbox-img" class="lightbox-img" src="" alt="Preview">
+        </div>
+    </div>
+    <footer class="site-footer">
+  <div class="footer-content">
+    <p>&copy; 2025 Adam Fejfar · Všechna práva vyhrazena</p>
+    <div class="footer-socials">
+      <a href="https://www.instagram.com/photos_by_fejfy/?hl=cs" target="_blank" aria-label="Instagram">📸</a>
+      <a href="mailto:info@adamfejfar.com" aria-label="Email">✉️</a>
+      <a href="https://www.adamfejfar.com" target="_blank" aria-label="GitHub">💻</a>
+    </div>
+  </div>
+</footer>
 
     <div class="lightbox" id="lightbox">
         <img src="" alt="Zvětšená fotografie" id="lightbox-img">
