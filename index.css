@@ -13,8 +13,8 @@ body {
     left: 0;
     width: 100%;
     /* Keep this for the color base, but ensure it's not fully opaque */
-    background-color: rgba(255, 255, 255, 0.091); /* Teal Green with slight opacity */
-    color: white;
+    background-color: rgba(0, 0, 0, 0.265); /* Teal Green with slight opacity */
+    color: rgb(255, 255, 255);
     
     /* Re-add these for the frosted effect */
     backdrop-filter: blur(8px);
@@ -31,7 +31,7 @@ body {
 }
 
 .navbar.active { /* This class will be added to the navbar when the hamburger is clicked */
-    background-color: rgba(255, 255, 255, 0.9); /* White background with slight transparency */
+    background-color: rgba(0, 0, 0, 0.265); /* White background with slight transparency */
     backdrop-filter: blur(10px); /* Adjust blur as desired for white background */
     -webkit-backdrop-filter: blur(10px);
     color: #333; /* Black text for the navbar itself */
@@ -100,7 +100,7 @@ body {
     background-color: white;
 }
 .navbar.active .hamburger .bar {
-    background-color: #333; /* Black bars when navbar is white */
+    background-color: #ffffff; /* Black bars when navbar is white */
 }
 
 /* --- Responsive Styles for Mobile (Hamburger Visible) --- */
@@ -116,35 +116,32 @@ body {
 
     /* Hide the regular nav links and show the hamburger */
     .nav-links {
-        display: none; /* Hidden by default on mobile */
-        flex-direction: column; /* Stack links vertically */
-        position: absolute;
-        top: 100%; /* Position right below the navbar */
-        left: 0;
-        width: 100%;
-        background-color: rgba(255, 255, 255, 0.091); 
-        background-color: rgba(255, 255, 255, 0.9); /* White background for the open menu */
-        backdrop-filter: blur(10px); /* Maintain blur for the menu content */
-        -webkit-backdrop-filter: blur(10px);
-        color: #000000;
-        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
-        padding: 20px 0; /* Vertical padding for menu items */
-        border-bottom-left-radius: 10px;
-        border-bottom-right-radius: 10px;
-        transform: translateY(-10px); /* Start slightly off-screen for animation */
-        opacity: 0;
-        pointer-events: none; /* Make it unclickable when hidden */
-        transition: transform 0.3s ease-out, opacity 0.3s ease-out; /* Smooth slide-in/fade-in */
-    }
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.253); /* Soft frosted white */
+    backdrop-filter: blur(14px) saturate(1.3); /* Stronger frosted effect */
+    -webkit-backdrop-filter: blur(14px) saturate(1.3);
+    color: #ffffff;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+    padding: 20px 0;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    transform: translateY(-10px);
+    opacity: 0;
+    pointer-events: none;
+    transition: transform 0.3s ease-out, opacity 0.3s ease-out;
+}
 
-    /* When the nav-links are active, make them visible */
-    .nav-links.active {
-        display: flex; /* Override display: none */
-        transform: translateY(0); /* Slide into view */
-        opacity: 1;
-        pointer-events: auto; /* Make it clickable */
-        
-    }
+.nav-links.active {
+    display: flex;
+    transform: translateY(0);
+    opacity: 1;
+    pointer-events: auto;
+}
 
     .nav-links li {
         text-align: center;
@@ -152,19 +149,24 @@ body {
     }
 
     .nav-links a {
-        padding: 12px 0;
-        font-size: 1.1em;
-        width: 100%;
-        border-radius: 0;
-        background-color: transparent; /* Keep transparent so the menu background shows */
-        color: #333; /* Black text for links in the open menu */
-    }
+    display: block;
+    padding: 14px 20px;
+    font-size: 1.1rem;
+    width: 90%;
+    margin: 0 auto;
+    background-color: rgba(255, 255, 255, 0.05);
+    color: white;
+    text-align: center;
+    border-radius: 8px;
+    transition: background-color 0.3s ease, backdrop-filter 0.3s ease;
+}
 
-    .nav-links a:hover {
-                background-color: rgba(0, 0, 0, 0.05);
-        backdrop-filter: blur(10px); /* Apply the blur directly to the menu here */
-        -webkit-backdrop-filter: blur(10px); /* For Safari */
-    }
+.nav-links a:hover {
+    background-color: rgba(255, 255, 255, 0.12);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+}
+
 
     /* Show hamburger icon on mobile */
     .hamburger {
@@ -319,16 +321,9 @@ header {
 
 @media (max-width: 768px) {
     .gallery3 {
-        grid-template-columns: repeat(2, 1fr);
-    }
-}
-
-@media (max-width: 480px) {
-    .gallery3 {
         grid-template-columns: 1fr;
     }
 }
-
 /* Reuse the same styling for cards and images as your .gallery class */
 .gallery3 .image-container {
     position: relative;
@@ -395,24 +390,7 @@ header {
   overflow: hidden;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-/* Aspect Ratios */
-.gallery-2 .aspect-4x5 {
-  aspect-ratio: 4 / 5;
-}
-
-.gallery-2 .aspect-16x9 {
-  aspect-ratio: 16 / 9;
-}
-
-.gallery-2 .aspect-9x16 {
-  aspect-ratio: 9 / 16;
-}
-
-/* Optional: Make tall images span more rows if desired */
-.gallery-2 .aspect-9x16 {
-  grid-row: span 2;
+  aspect-ratio: 4 / 5; 
 }
 
 .gallery-2 .image-container:hover {
@@ -440,6 +418,7 @@ header {
     grid-template-columns: 1fr;
   }
 }
+
 
 
 
