@@ -42,7 +42,7 @@ body {
 
 .navbar img {
     height: 50px; /* Adjust height if needed */
-    margin-right: 15px;
+    margin-right: 10px;
 }
 
 /* Desktop navigation links */
@@ -82,12 +82,13 @@ body {
     flex-direction: column;
     justify-content: space-around;
     width: 30px;
-    height: 25px;
+    height: 30px;
     background: transparent;
     border: none;
     cursor: pointer;
     padding: 0;
     z-index: 101; /* Ensures it's above other elements if it were visible */
+    
 }
 
 .hamburger .bar {
@@ -106,7 +107,12 @@ body {
 @media (max-width: 768px) { /* Adjust breakpoint as needed for your mobile size */
     .navbar {
         padding: 10px 15px; /* Slightly less padding on mobile */
+        margin-right: 20px;
     }
+
+    .hamburger {
+    margin-right: 30px; /* Push it left */
+}
 
     /* Hide the regular nav links and show the hamburger */
     .nav-links {
@@ -166,17 +172,6 @@ body {
     }
 
     /* Hamburger Animation States (when .active class is applied by JS) */
-    .hamburger.active .bar:nth-child(1) {
-        transform: translateY(11px) rotate(45deg); /* Top bar rotates and moves */
-    }
-
-    .hamburger.active .bar:nth-child(2) {
-        opacity: 0; /* Middle bar fades out */
-    }
-
-    .hamburger.active .bar:nth-child(3) {
-        transform: translateY(-11px) rotate(-45deg); /* Bottom bar rotates and moves */
-    }
 }
 
 /* Header & Hero Image (unchanged for this request) */
@@ -307,14 +302,74 @@ header {
 
 
 
+.gallery3 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    padding: 30px;
+    max-width: 1000px;
+    margin: auto;
+}
 
+@media (min-width: 1024px) {
+    .gallery3 {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
 
+@media (max-width: 768px) {
+    .gallery3 {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
 
+@media (max-width: 480px) {
+    .gallery3 {
+        grid-template-columns: 1fr;
+    }
+}
 
+/* Reuse the same styling for cards and images as your .gallery class */
+.gallery3 .image-container {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
 
+.gallery3 .image-container:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
 
+.gallery3 .image-container:nth-child(-n+3) {
+    padding-bottom: 177.78%;
+}
+.gallery3 .image-container:nth-child(n+4) {
+    padding-bottom: 133.33%;
+}
 
+.gallery3 img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    cursor: pointer;
+    transition: transform 0.3s ease, filter 0.3s ease;
+    z-index: 2;
+    border-radius: 8px;
+}
 
+.gallery3 img:hover {
+    transform: scale(1.05);
+    filter: brightness(80%);
+    z-index: 1;
+}
 
 
 
@@ -327,7 +382,6 @@ header {
 .gallery-2 {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  grid-auto-rows: 200px;
   gap: 20px;
   padding: 30px;
   max-width: 1200px;
@@ -336,11 +390,29 @@ header {
 
 .gallery-2 .image-container {
   position: relative;
-  overflow: hidden;
   background-color: white;
   border-radius: 8px;
+  overflow: hidden;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Aspect Ratios */
+.gallery-2 .aspect-4x5 {
+  aspect-ratio: 4 / 5;
+}
+
+.gallery-2 .aspect-16x9 {
+  aspect-ratio: 16 / 9;
+}
+
+.gallery-2 .aspect-9x16 {
+  aspect-ratio: 9 / 16;
+}
+
+/* Optional: Make tall images span more rows if desired */
+.gallery-2 .aspect-9x16 {
+  grid-row: span 2;
 }
 
 .gallery-2 .image-container:hover {
@@ -362,27 +434,13 @@ header {
   filter: brightness(80%);
 }
 
-.gallery-2 .wide {
-  grid-column: span 2;
-}
-
-.gallery-2 .tall {
-  grid-row: span 2;
-}
-
-/* Mobile fallback: single column */
+/* Mobile: 1 column */
 @media (max-width: 768px) {
   .gallery-2 {
     grid-template-columns: 1fr;
-    grid-auto-rows: 200px;
-  }
-
-  .gallery-2 .wide,
-  .gallery-2 .tall {
-    grid-column: span 1;
-    grid-row: span 1;
   }
 }
+
 
 
 
