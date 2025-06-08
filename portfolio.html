@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Adam Fejfar - Portfolio</title>
     <link rel="stylesheet" href="index.css">
+    <script src="script.js"></script>
+
     <style>
         .reveal {
             opacity: 0;
@@ -43,71 +45,34 @@
         </div>
     </header>
 
-    <section class="gallery">
+    <section class="gallery3">
         <div class="image-container">
-            <a href="jhcollection.html">
-                <img src="ktmgr.webp" alt="Fotografie 4">
+            <a href="cars.html">
+                <img src="photo5.webp" alt="Fotografie 4">
                 <div class="overlay">
-                    <div style="text-align: center; font-weight: bold;">FEJFY</div>
-                    <div style="text-align: center; font-weight: bold;">X</div>
-                    <div style="text-align: center; font-weight: bold;">JHCOLLECTION</div>
+                    <div style="text-align: center; font-weight: bold;">AUTOMOTIVE</div>
+                    
                 </div>
             </a>
         </div>
         <div class="image-container">
-            <a href="petrol2024.html">
+            <a href="portraits.html">
                 <img src="photo1.webp" alt="Fotografie 1">
                 <div class="overlay">
-                    <div style="text-align: center; font-weight: bold;">FEJFY</div>
-                    <div style="text-align: center; font-weight: bold;">X</div>
-                    <div style="text-align: center; font-weight: bold;">PETROL PALACE</div>
+                    <div style="text-align: center; font-weight: bold;">PORTRAITS</div>
                 </div>
             </a>
         </div>
         
         <div class="image-container">
-            <a href="911mouse.html">
+            <a href="sports.html">
                 <img src="photo2.webp" alt="Fotografie 2">
                 <div class="overlay">
-                    <div style="text-align: center; font-weight: bold;">FEJFY</div>
-                    <div style="text-align: center; font-weight: bold;">X</div>
-                    <div style="text-align: center; font-weight: bold;">911_MOUSE</div>
+                    <div style="text-align: center; font-weight: bold;">SPORTS</div>
                 </div>
             </a>
         </div>
         
-        <div class="image-container">
-            <a href="zerostyle.html">
-                <img src="photo3.webp" alt="Fotografie 3">
-                <div class="overlay">
-                    <div style="text-align: center; font-weight: bold;">FEJFY</div>
-                    <div style="text-align: center; font-weight: bold;">X</div>
-                    <div style="text-align: center; font-weight: bold;">ZEROSTYLE</div>
-                </div>
-            </a>
-        </div>
-        
-        <div class="image-container">
-            <a href="#">
-                <img src="photo4.webp" alt="Fotografie 4">
-                <div class="overlay">
-                    <div style="text-align: center; font-weight: bold;">FEJFY</div>
-                    <div style="text-align: center; font-weight: bold;">X</div>
-                    <div style="text-align: center; font-weight: bold;">KRONGARAGE</div>
-                </div>
-            </a>
-        </div>
-
-        <div class="image-container">
-            <a href="#">
-                <img src="ret3.webp" alt="Fotografie 4">
-                <div class="overlay">
-                    <div style="text-align: center; font-weight: bold;">FEJFY</div>
-                    <div style="text-align: center; font-weight: bold;">X</div>
-                    <div style="text-align: center; font-weight: bold;">RETRONIUM</div>
-                </div>
-            </a>
-        </div>
     </section>
     
     
@@ -127,7 +92,7 @@
     </div>
 
     <script>
-        document.getElementById('about-link').addEventListener('click', function(e) {
+         document.getElementById('about-link').addEventListener('click', function(e) {
             e.preventDefault();
             document.getElementById('about').scrollIntoView({ behavior: 'smooth' });
         });
@@ -151,6 +116,12 @@
                 lightbox.classList.remove('active');
             }
         }
+        const hamburger = document.querySelector('.hamburger');
+const navLinks = document.querySelector('.nav-links');
+
+hamburger.addEventListener('click', () => {
+  navLinks.classList.toggle('active');
+});
     </script>
 </body>
 </html>
