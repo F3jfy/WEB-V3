@@ -1,464 +1,464 @@
-/* Reset and base styles */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-html {
-  scroll-behavior: smooth;
-}
-
-body {
-  font-family: 'Roboto', sans-serif; /* Using Roboto as per your HTML link */
-  background-color: #f4f4f4; /* A light background for contrast with cards */
-  color: #333; /* Default text color */
-  line-height: 1.6;
-  -webkit-font-smoothing: antialiased;
-}
-
-a {
-  text-decoration: none;
-  color: inherit;
-  transition: color 0.2s ease;
-}
-
-img {
-  max-width: 100%;
-  display: block;
-}
-
-/* --- Navbar --- */
-.navbar {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    background-color: rgba(0, 0, 0, 0.356); /* Teal Green with slight opacity */
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px); /* For Safari compatibility */
-    color: white;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    z-index: 100; /* High z-index for navbar */
-    transition: background-color 0.3s ease, backdrop-filter 0.3s ease, box-shadow 0.3s ease;
-    padding: 10px 20px;
-    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.25);
-}
-
-.navbar.active { /* This class will be added to the navbar when the hamburger is clicked */
-    background-color: rgba(255, 255, 255, 0.9); /* White background with slight transparency */
-    backdrop-filter: blur(10px); /* Adjust blur as desired for white background */
-    -webkit-backdrop-filter: blur(10px);
-    color: #333; /* Black text for the navbar itself */
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Slightly stronger shadow for contrast */
-}
-
-.navbar img {
-    height: 50px; /* Adjust height if needed */
-    margin-right: 10px;
-}
-
-/* Desktop navigation links */
-.nav-links {
-    list-style: none; /* Removes bullet points */
+    /* Reset and base styles */
+    * {
     margin: 0;
     padding: 0;
-    display: flex; /* Arranges links horizontally */
-    gap: 15px; /* Spacing between links */
-    padding-right: 30px;
-}
+    box-sizing: border-box;
+    }
+    html {
+    scroll-behavior: smooth;
+    }
 
-.nav-links li {
-    margin: 0; /* Remove default list item margin */
-}
+    body {
+    font-family: 'Roboto', sans-serif; /* Using Roboto as per your HTML link */
+    background-color: #f4f4f4; /* A light background for contrast with cards */
+    color: #333; /* Default text color */
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    }
 
-.nav-links a {
-    color: white;
+    a {
     text-decoration: none;
-    padding: 8px 12px;
-    border-radius: 6px;
-    background-color: rgba(255, 255, 255, 0.091);
-    font-size: 0.9em;
-    transition: background-color 0.2s ease, box-shadow 0.2s ease;
-    display: block; /* Make the whole padding area clickable */
-}
+    color: inherit;
+    transition: color 0.2s ease;
+    }
 
-.nav-links a:hover {
-    background-color: rgba(255, 255, 255, 0.091);
-    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.25); /* Subtle hover shadow */
-}
+    img {
+    max-width: 100%;
+    display: block;
+    }
 
-/* --- Hamburger Icon (Desktop: Hidden) --- */
-.hamburger {
-    display: none; /* Hidden by default on larger screens */
-    flex-direction: column;
-    justify-content: space-around;
-    width: 30px;
-    height: 30px;
-    background: transparent;
-    border: none;
-    cursor: pointer;
-    padding: 0;
-    z-index: 101; /* Ensures it's above other elements if it were visible */
-    margin-right: 20px; /* Small margin for desktop */
-}
-
-.hamburger .bar {
-    width: 100%;
-    height: 3px;
-    background-color: white;
-    border-radius: 2px;
-    transition: all 0.3s ease-in-out; /* For the animation */
-}
-
-.navbar.active .hamburger .bar {
-    background-color: #333; /* Darker bars when the navbar itself becomes lighter */
-}
-
-/* Hamburger Animation States (when .active class is applied by JS) */
-.hamburger.active .bar:nth-child(1) {
-    transform: rotate(45deg) translate(7px, 7px);
-}
-
-.hamburger.active .bar:nth-child(2) {
-    opacity: 0;
-}
-
-.hamburger.active .bar:nth-child(3) {
-    transform: rotate(-45deg) translate(7px, -7px);
-}
-
-/* --- Menu Overlay for Blur Effect --- */
-#menu-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    background-color: rgba(0, 0, 0, 0.4); /* A semi-transparent black for darkening */
-    backdrop-filter: blur(8px); /* The magic blur effect */
-    -webkit-backdrop-filter: blur(8px); /* Safari compatibility */
-    opacity: 0; /* Hidden by default */
-    visibility: hidden; /* Hidden by default */
-    transition: opacity 0.3s ease, visibility 0.3s ease; /* Smooth transition */
-    z-index: 90; /* BELOW the mobile menu, but above everything else */
-}
-
-#menu-overlay.active {
-    opacity: 1; /* Fully visible */
-    visibility: visible; /* Make it interactive */
-}
-
-/* --- Responsive Styles for Mobile (Hamburger Visible, Mobile Menu) --- */
-@media (max-width: 768px) { /* Adjust breakpoint as needed for your mobile size */
+    /* --- Navbar --- */
     .navbar {
-        padding: 10px 15px; /* Slightly less padding on mobile */
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        background-color: rgba(0, 0, 0, 0.356); /* Teal Green with slight opacity */
+        backdrop-filter: blur(8px);
+        -webkit-backdrop-filter: blur(8px); /* For Safari compatibility */
+        color: white;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        z-index: 100; /* High z-index for navbar */
+        transition: background-color 0.3s ease, backdrop-filter 0.3s ease, box-shadow 0.3s ease;
+        padding: 10px 20px;
+        box-shadow: 0 3px 6px rgba(0, 0, 0, 0.25);
     }
 
-    .hamburger {
-        display: flex; /* Show the button */
-        margin-right: 15px; /* Adjust margin for mobile */
+    .navbar.active { /* This class will be added to the navbar when the hamburger is clicked */
+        background-color: rgba(255, 255, 255, 0.9); /* White background with slight transparency */
+        backdrop-filter: blur(10px); /* Adjust blur as desired for white background */
+        -webkit-backdrop-filter: blur(10px);
+        color: #333; /* Black text for the navbar itself */
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Slightly stronger shadow for contrast */
     }
 
-    /* Mobile navigation links (this is your mobile menu) */
+    .navbar img {
+        height: 50px; /* Adjust height if needed */
+        margin-right: 10px;
+    }
+
+    /* Desktop navigation links */
     .nav-links {
-        /* Removed max-height: 0; and overflow: hidden; */
-        flex-direction: column;
-        position: fixed; /* Use fixed for full screen coverage */
-        top: 0; /* Align to top */
-        right: -100vw; /* Off-screen to the right, hidden by default */
-        width: 70vw; /* Take 70% of the viewport width */
-        height: 100vh; /* Full viewport height */
-        background-color: #fff; /* Solid white background for the menu panel */
-        color: #333; /* Dark text for the menu items */
-        box-shadow: -4px 0 12px rgba(0, 0, 0, 0.2); /* Shadow on the left edge */
-        opacity: 0; /* Hidden by default for smooth fade in */
-        pointer-events: none; /* Prevents interaction when hidden */
-        transition: right 0.4s ease, opacity 0.4s ease; /* Transition for sliding and fading */
-        z-index: 95; /* Ensure this is higher than #menu-overlay's z-index (90) */
-        padding-top: 80px; /* Space from the top to account for navbar, preventing links from being behind it */
-        padding-bottom: 20px; /* Some padding at the bottom */
-        align-items: center; /* Center items horizontally in the column */
-    }
-
-    .nav-links.active {
-        right: 0; /* Slides the menu into view */
-        opacity: 1; /* Fades the menu in */
-        pointer-events: auto; /* Allows interaction when active */
+        list-style: none; /* Removes bullet points */
+        margin: 0;
+        padding: 0;
+        display: flex; /* Arranges links horizontally */
+        gap: 15px; /* Spacing between links */
+        padding-right: 30px;
     }
 
     .nav-links li {
-        text-align: center;
-        width: 100%; /* Ensure list item takes full width for link styling */
-        margin-bottom: 10px; /* Space between stacked links */
+        margin: 0; /* Remove default list item margin */
     }
 
     .nav-links a {
-        display: block;
-        padding: 14px 20px;
-        font-size: 1.1rem;
-        width: 90%; /* Links take 90% width of the menu panel */
-        margin: 0 auto; /* Center the links */
-        background-color: #f3f4f6; /* Light grey background for each menu item */
-        color: #111827; /* Dark text for readability */
-        text-align: center;
-        border-radius: 8px;
-        border: 1px solid #e5e7eb; /* Subtle border */
-        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05); /* Soft shadow */
-        transition: all 0.3s ease; /* Smooth transitions for hover */
+        color: white;
+        text-decoration: none;
+        padding: 8px 12px;
+        border-radius: 6px;
+        background-color: rgba(255, 255, 255, 0.091);
+        font-size: 0.9em;
+        transition: background-color 0.2s ease, box-shadow 0.2s ease;
+        display: block; /* Make the whole padding area clickable */
     }
 
     .nav-links a:hover {
-        background-color: #e0e2e6; /* Slightly darker on hover */
-        color: #000; /* Make text a bit darker on hover */
-        transform: translateY(-2px); /* Slight lift effect */
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* More pronounced shadow on hover */
+        background-color: rgba(255, 255, 255, 0.091);
+        box-shadow: 0 1px 4px rgba(0, 0, 0, 0.25); /* Subtle hover shadow */
     }
-}
-    
-/* Header & Hero Image (unchanged for this request) */
-header {
-    position: relative;
-    text-align: center;
-    color: white;
-}
-.hero-image {
-    width: 100%;
-    height: 80vh;
-    background: url('main.webp') no-repeat center center/cover;
-    clip-path: polygon(0% 0%, 100% 0%, 100% 90%, 0% 100%);
-    margin-top: 0px;
-    margin-bottom: 20px;
-    position: relative;
-}
-.hero-image h2 {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    font-size: 3.5em; /* Default font size for larger screens */
-    color: white;
-    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.4);
-    margin: 0;
-    background-color: rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(12px) saturate(1.2);
-    -webkit-backdrop-filter: blur(12px) saturate(1.2);
-    padding: 18px 40px;
-    border-radius: 12px;
-    border: 1px solid rgba(255, 255, 255, 0.5);
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-    white-space: nowrap; /* Prevent text from wrapping on larger screens by default */
-    overflow: hidden;
-    text-overflow: ellipsis;
-    max-width: 90%;
-}
 
-/* --- Media Query for Smaller Screens --- */
-@media (max-width: 500px) { /* Adjust this breakpoint as needed */
+    /* --- Hamburger Icon (Desktop: Hidden) --- */
+    .hamburger {
+        display: none; /* Hidden by default on larger screens */
+        flex-direction: column;
+        justify-content: space-around;
+        width: 30px;
+        height: 30px;
+        background: transparent;
+        border: none;
+        cursor: pointer;
+        padding: 0;
+        z-index: 101; /* Ensures it's above other elements if it were visible */
+        margin-right: 20px; /* Small margin for desktop */
+    }
+
+    .hamburger .bar {
+        width: 100%;
+        height: 3px;
+        background-color: white;
+        border-radius: 2px;
+        transition: all 0.3s ease-in-out; /* For the animation */
+    }
+
+    .navbar.active .hamburger .bar {
+        background-color: #333; /* Darker bars when the navbar itself becomes lighter */
+    }
+
+    /* Hamburger Animation States (when .active class is applied by JS) */
+    .hamburger.active .bar:nth-child(1) {
+        transform: rotate(45deg) translate(7px, 7px);
+    }
+
+    .hamburger.active .bar:nth-child(2) {
+        opacity: 0;
+    }
+
+    .hamburger.active .bar:nth-child(3) {
+        transform: rotate(-45deg) translate(7px, -7px);
+    }
+
+    /* --- Menu Overlay for Blur Effect --- */
+    #menu-overlay {
+        position: fixed;
+        top: 0; 
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        background-color: rgba(0, 0, 0, 0.4); /* A semi-transparent black for darkening */
+        backdrop-filter: blur(8px); /* The magic blur effect */
+        -webkit-backdrop-filter: blur(8px); /* Safari compatibility */
+        opacity: 0; /* Hidden by default */
+        visibility: hidden; /* Hidden by default */
+        transition: opacity 0.3s ease, visibility 0.3s ease; /* Smooth transition */
+        z-index: 90; /* BELOW the mobile menu, but above everything else */
+    }
+
+    #menu-overlay.active {
+        opacity: 1; /* Fully visible */
+        visibility: visible; /* Make it interactive */
+    }
+
+    /* --- Responsive Styles for Mobile (Hamburger Visible, Mobile Menu) --- */
+    @media (max-width: 768px) { /* Adjust breakpoint as needed for your mobile size */
+        .navbar {
+            padding: 10px 15px; /* Slightly less padding on mobile */
+        }
+
+        .hamburger {
+            display: flex; /* Show the button */
+            margin-right: 15px; /* Adjust margin for mobile */
+        }
+
+        /* Mobile navigation links (this is your mobile menu) */
+        .nav-links {
+            /* Removed max-height: 0; and overflow: hidden; */
+            flex-direction: column;
+            position: fixed; /* Use fixed for full screen coverage */
+            top: 0; /* Align to top */
+            right: -100vw; /* Off-screen to the right, hidden by default */
+            width: 70vw; /* Take 70% of the viewport width */
+            height: 100vh; /* Full viewport height */
+            background-color: #fff; /* Solid white background for the menu panel */
+            color: #333; /* Dark text for the menu items */
+            box-shadow: -4px 0 12px rgba(0, 0, 0, 0.2); /* Shadow on the left edge */
+            opacity: 0; /* Hidden by default for smooth fade in */
+            pointer-events: none; /* Prevents interaction when hidden */
+            transition: right 0.4s ease, opacity 0.4s ease; /* Transition for sliding and fading */
+            z-index: 95; /* Ensure this is higher than #menu-overlay's z-index (90) */
+            padding-top: 80px; /* Space from the top to account for navbar, preventing links from being behind it */
+            padding-bottom: 20px; /* Some padding at the bottom */
+            align-items: center; /* Center items horizontally in the column */
+        }
+
+        .nav-links.active {
+            right: 0; /* Slides the menu into view */
+            opacity: 1; /* Fades the menu in */
+            pointer-events: auto; /* Allows interaction when active */
+        }
+
+        .nav-links li {
+            text-align: center;
+            width: 100%; /* Ensure list item takes full width for link styling */
+            margin-bottom: 10px; /* Space between stacked links */
+        }
+
+        .nav-links a {
+            display: block;
+            padding: 14px 20px;
+            font-size: 1.1rem;
+            width: 90%; /* Links take 90% width of the menu panel */
+            margin: 0 auto; /* Center the links */
+            background-color: #f3f4f6; /* Light grey background for each menu item */
+            color: #111827; /* Dark text for readability */
+            text-align: center;
+            border-radius: 8px;
+            border: 1px solid #e5e7eb; /* Subtle border */
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05); /* Soft shadow */
+            transition: all 0.3s ease; /* Smooth transitions for hover */
+        }
+
+        .nav-links a:hover {
+            background-color: #e0e2e6; /* Slightly darker on hover */
+            color: #000; /* Make text a bit darker on hover */
+            transform: translateY(-2px); /* Slight lift effect */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* More pronounced shadow on hover */
+        }
+    }
+
+    /* Header & Hero Image (unchanged for this request) */
+    header {
+        position: relative;
+        text-align: center;
+        color: white;
+    }
+    .hero-image {
+        width: 100%;
+        height: 80vh;
+        background: url('main.webp') no-repeat center center/cover;
+        clip-path: polygon(0% 0%, 100% 0%, 100% 90%, 0% 100%);
+        margin-top: 0px;
+        margin-bottom: 20px;
+        position: relative;
+    }
     .hero-image h2 {
-        font-size: 2em; /* Smaller font size for better fit on very small screens */
-        white-space: normal; /* Allow text to wrap onto multiple lines */
-        padding: 15px 25px; /* Adjust padding for smaller sizes */
-        max-width: 95%; /* Give it a bit more room */
-        text-overflow: clip; /* Remove ellipsis if you want the full text to show */
-        overflow: visible; /* Ensure content is visible */
-        text-align: center; /* Center the wrapped text */
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-size: 3.5em; /* Default font size for larger screens */
+        color: white;
+        text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.4);
+        margin: 0;
+        background-color: rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(12px) saturate(1.2);
+        -webkit-backdrop-filter: blur(12px) saturate(1.2);
+        padding: 18px 40px;
+        border-radius: 12px;
+        border: 1px solid rgba(255, 255, 255, 0.5);
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        white-space: nowrap; /* Prevent text from wrapping on larger screens by default */
+        overflow: hidden;
+        text-overflow: ellipsis;
+        max-width: 90%;
     }
-}
-/* --- Gallery Section --- */
-.gallery {
+
+    /* --- Media Query for Smaller Screens --- */
+    @media (max-width: 500px) { /* Adjust this breakpoint as needed */
+        .hero-image h2 {
+            font-size: 2em; /* Smaller font size for better fit on very small screens */
+            white-space: normal; /* Allow text to wrap onto multiple lines */
+            padding: 15px 25px; /* Adjust padding for smaller sizes */
+            max-width: 95%; /* Give it a bit more room */
+            text-overflow: clip; /* Remove ellipsis if you want the full text to show */
+            overflow: visible; /* Ensure content is visible */
+            text-align: center; /* Center the wrapped text */
+        }
+    }
+    /* --- Gallery Section --- */
+    .gallery {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 20px; /* Increased gap for card separation */
+        padding: 30px; /* More padding around the gallery */
+        max-width: 1200px;
+        margin: auto;
+    }
+
+    /* Responsive gallery settings (unchanged) */
+    @media (min-width: 1200px) {
+        .gallery {
+            grid-template-columns: repeat(4, 1fr);
+        }
+    }
+    @media (max-width: 1200px) {
+        .gallery {
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        }
+    }
+    @media (max-width: 768px) {
+        .gallery {
+            grid-template-columns: 1fr;
+        }
+    }
+
+    /* Apply card design to gallery images */
+    .gallery .image-container {
+        position: relative;
+        width: 100%;
+        overflow: hidden;
+        background-color: white; /* Card background */
+        border-radius: 8px; /* Rounded corners for cards */
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+        transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth hover transition */
+    }
+
+    /* Hover effect for gallery cards */
+    .gallery .image-container:hover {
+        transform: translateY(-5px); /* Lift effect on hover */
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* More prominent shadow on hover */
+    }
+
+    /* Aspect ratios (unchanged) */
+    .gallery .image-container:nth-child(-n+4) {
+        padding-bottom: 177.78%; 
+    }
+    .gallery .image-container:nth-child(n+5) {
+        padding-bottom: 133.33%; 
+    }
+
+    .gallery img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        cursor: pointer;
+        transition: transform 0.3s ease, filter 0.3s ease;
+        z-index: 2;
+        border-radius: 8px; /* Match container border-radius */
+    }
+
+    .gallery img:hover {
+        transform: scale(1.05);
+        filter: brightness(80%);
+        z-index: 1; 
+    }
+
+
+
+
+
+
+
+
+
+    .gallery3 {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 20px;
+        padding: 30px;
+        max-width: 1000px;
+        margin: auto;
+    }
+
+    @media (min-width: 1024px) {
+        .gallery3 {
+            grid-template-columns: repeat(3, 1fr);
+        }
+    }
+
+    @media (max-width: 768px) {
+        .gallery3 {
+            grid-template-columns: 1fr;
+        }
+    }
+    /* Reuse the same styling for cards and images as your .gallery class */
+    .gallery3 .image-container {
+        position: relative;
+        width: 100%;
+        overflow: hidden;
+        background-color: white;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .gallery3 .image-container:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    }
+
+    .gallery3 .image-container:nth-child(-n+3) {
+        padding-bottom: 177.78%;
+    }
+    .gallery3 .image-container:nth-child(n+4) {
+        padding-bottom: 133.33%;
+    }
+
+    .gallery3 img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        cursor: pointer;
+        transition: transform 0.3s ease, filter 0.3s ease;
+        z-index: 2;
+        border-radius: 8px;
+    }
+
+    .gallery3 img:hover {
+        transform: scale(1.05);
+        filter: brightness(80%);
+        z-index: 1;
+    }
+
+
+
+
+
+
+
+
+
+    .gallery-2 {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 20px; /* Increased gap for card separation */
-    padding: 30px; /* More padding around the gallery */
-    max-width: 1200px;
-    margin: auto;
-}
-
-/* Responsive gallery settings (unchanged) */
-@media (min-width: 1200px) {
-    .gallery {
-        grid-template-columns: repeat(4, 1fr);
-    }
-}
-@media (max-width: 1200px) {
-    .gallery {
-        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    }
-}
-@media (max-width: 768px) {
-    .gallery {
-        grid-template-columns: 1fr;
-    }
-}
-
-/* Apply card design to gallery images */
-.gallery .image-container {
-    position: relative;
-    width: 100%;
-    overflow: hidden;
-    background-color: white; /* Card background */
-    border-radius: 8px; /* Rounded corners for cards */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
-    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth hover transition */
-}
-
-/* Hover effect for gallery cards */
-.gallery .image-container:hover {
-    transform: translateY(-5px); /* Lift effect on hover */
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* More prominent shadow on hover */
-}
-
-/* Aspect ratios (unchanged) */
-.gallery .image-container:nth-child(-n+4) {
-    padding-bottom: 177.78%; 
-}
-.gallery .image-container:nth-child(n+5) {
-    padding-bottom: 133.33%; 
-}
-
-.gallery img {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    cursor: pointer;
-    transition: transform 0.3s ease, filter 0.3s ease;
-    z-index: 2;
-    border-radius: 8px; /* Match container border-radius */
-}
-
-.gallery img:hover {
-    transform: scale(1.05);
-    filter: brightness(80%);
-    z-index: 1; 
-}
-
-
-
-
-
-
-
-
-
-.gallery3 {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(4, 1fr);
     gap: 20px;
     padding: 30px;
-    max-width: 1000px;
+    max-width: 1200px;
     margin: auto;
-}
-
-@media (min-width: 1024px) {
-    .gallery3 {
-        grid-template-columns: repeat(3, 1fr);
     }
-}
 
-@media (max-width: 768px) {
-    .gallery3 {
-        grid-template-columns: 1fr;
-    }
-}
-/* Reuse the same styling for cards and images as your .gallery class */
-.gallery3 .image-container {
+    .gallery-2 .image-container {
     position: relative;
-    width: 100%;
-    overflow: hidden;
     background-color: white;
     border-radius: 8px;
+    overflow: hidden;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
+    aspect-ratio: 4 / 5; 
+    }
 
-.gallery3 .image-container:hover {
+    .gallery-2 .image-container:hover {
     transform: translateY(-5px);
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-}
+    }
 
-.gallery3 .image-container:nth-child(-n+3) {
-    padding-bottom: 177.78%;
-}
-.gallery3 .image-container:nth-child(n+4) {
-    padding-bottom: 133.33%;
-}
-
-.gallery3 img {
-    position: absolute;
-    top: 0;
-    left: 0;
+    .gallery-2 img {
     width: 100%;
     height: 100%;
     object-fit: cover;
     cursor: pointer;
     transition: transform 0.3s ease, filter 0.3s ease;
-    z-index: 2;
     border-radius: 8px;
-}
+    }
 
-.gallery3 img:hover {
+    .gallery-2 img:hover {
     transform: scale(1.05);
     filter: brightness(80%);
-    z-index: 1;
-}
+    }
 
-
-
-
-
-
-
-
-
-.gallery-2 {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 20px;
-  padding: 30px;
-  max-width: 1200px;
-  margin: auto;
-}
-
-.gallery-2 .image-container {
-  position: relative;
-  background-color: white;
-  border-radius: 8px;
-  overflow: hidden;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  aspect-ratio: 4 / 5; 
-}
-
-.gallery-2 .image-container:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-}
-
-.gallery-2 img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  cursor: pointer;
-  transition: transform 0.3s ease, filter 0.3s ease;
-  border-radius: 8px;
-}
-
-.gallery-2 img:hover {
-  transform: scale(1.05);
-  filter: brightness(80%);
-}
-
-/* Mobile: 1 column */
-@media (max-width: 768px) {
-  .gallery-2 {
-    grid-template-columns: 1fr;
-  }
-}
+    /* Mobile: 1 column */
+    @media (max-width: 768px) {
+    .gallery-2 {
+        grid-template-columns: 1fr;
+    }
+    }
 
 
 
@@ -485,232 +485,232 @@ header {
 
 
 
-.image-container:hover .overlay {
-    opacity: 1;
-    pointer-events: auto;
-}
-.overlay > div {
-    pointer-events: none;
-}
-.overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: rgba(0, 0, 0, 0.7);
-    color: white;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    opacity: 0;
-    transition: opacity 0.3s ease;
-    z-index: 2;
-    border-radius: 8px; /* Match container border-radius */
-}
+    .image-container:hover .overlay {
+        opacity: 1;
+        pointer-events: auto;
+    }
+    .overlay > div {
+        pointer-events: none;
+    }
+    .overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: rgba(0, 0, 0, 0.7);
+        color: white;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+        z-index: 2;
+        border-radius: 8px; /* Match container border-radius */
+    }
 
-/* --- Lightbox (unchanged for this request) --- */
-.lightbox {
-    display: flex;
-    position: fixed;
-    inset: 0;
-    background: rgba(255, 255, 255, 0.08);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    z-index: 1000;
-    justify-content: center;
-    align-items: center;
-    will-change: transform;
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity 0.4s ease;
-}
+    /* --- Lightbox (unchanged for this request) --- */
+    .lightbox {
+        display: flex;
+        position: fixed;
+        inset: 0;
+        background: rgba(255, 255, 255, 0.08);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        z-index: 1000;
+        justify-content: center;
+        align-items: center;
+        will-change: transform;
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.4s ease;
+    }
 
-.lightbox.active {
-    opacity: 1;
-    pointer-events: auto;
-}
-.lightbox-img {
-    max-width: 80vw;
-    max-height: 80vh;
-    border-radius: 10px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-}
-.lightbox-close {
-    position: fixed;
-    top: 20px;
-    right: 20px;
-    width: 44px;
-    height: 44px;
-    font-size: 32px;
-    line-height: 1;
-    color: white;
-    background: rgba(0, 0, 0, 0.6);
-    border: none;
-    border-radius: 50%;
-    cursor: pointer;
-    z-index: 1001;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-family: sans-serif;
-    font-weight: bold;
-}
-.lightbox-close:hover {
-    background-color: rgba(0, 0, 0, 0.8);
-}
-.lightbox-content {
-    padding: 10px;
-    transform: scale(0.95);
-    opacity: 0;
-    transition: transform 0.4s ease, opacity 0.4s ease;
-    will-change: transform;
-}
-.lightbox.active .lightbox-content {
-    transform: scale(1);
-    opacity: 1;
-}
+    .lightbox.active {
+        opacity: 1;
+        pointer-events: auto;
+    }
+    .lightbox-img {
+        max-width: 80vw;
+        max-height: 80vh;
+        border-radius: 10px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    }
+    .lightbox-close {
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        width: 44px;
+        height: 44px;
+        font-size: 32px;
+        line-height: 1;
+        color: white;
+        background: rgba(0, 0, 0, 0.6);
+        border: none;
+        border-radius: 50%;
+        cursor: pointer;
+        z-index: 1001;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-family: sans-serif;
+        font-weight: bold;
+    }
+    .lightbox-close:hover {
+        background-color: rgba(0, 0, 0, 0.8);
+    }
+    .lightbox-content {
+        padding: 10px;
+        transform: scale(0.95);
+        opacity: 0;
+        transition: transform 0.4s ease, opacity 0.4s ease;
+        will-change: transform;
+    }
+    .lightbox.active .lightbox-content {
+        transform: scale(1);
+        opacity: 1;
+    }
 
-/* --- About Section --- */
-.about {
-    padding: 40px 20px; /* Adjusted padding for better spacing */
-    display: flex;
-    justify-content: center;
-    background-color: #f9f9f9; /* Slightly different background for section */
-}
-.about-content {
-    display: flex;
-    /* align-items: center;  <-- Remove or change this */
-    align-items: flex-start; /* Aligns items to the top */
-    max-width: 1200px;
-    background-color: white;
-    border-radius: 12px;
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
-    padding: 40px; /* Use 40px all around */
-    /* Remove padding-top: 0; if you want 40px at the top */
-    margin: 30px 0;
-}
-
-.about-content img {
-    max-width: 300px;
-    height: auto; /* Important: allows the image to scale maintaining aspect ratio */
-    margin-right: 30px;
-    border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-}
-
-.about-content div { /* Assuming this is your text content wrapper */
-    flex: 1;
-}
-
-@media (max-width: 768px) {
+    /* --- About Section --- */
+    .about {
+        padding: 40px 20px; /* Adjusted padding for better spacing */
+        display: flex;
+        justify-content: center;
+        background-color: #f9f9f9; /* Slightly different background for section */
+    }
     .about-content {
-        flex-direction: column; /* On mobile, flex direction changes */
-        padding: 25px;
+        display: flex;
+        /* align-items: center;  <-- Remove or change this */
+        align-items: flex-start; /* Aligns items to the top */
+        max-width: 1200px;
+        background-color: white;
+        border-radius: 12px;
+        box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+        padding: 40px; /* Use 40px all around */
+        /* Remove padding-top: 0; if you want 40px at the top */
+        margin: 30px 0;
     }
+
     .about-content img {
-        order: -1;
-        margin-right: 0;
-        margin-bottom: 25px;
-        width: 100%;
-        max-width: 100%;
-        height: auto;
+        max-width: 300px;
+        height: auto; /* Important: allows the image to scale maintaining aspect ratio */
+        margin-right: 30px;
+        border-radius: 8px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     }
-}
 
-/* --- Contact Section --- */
-.contact {
+    .about-content div { /* Assuming this is your text content wrapper */
+        flex: 1;
+    }
+
+    @media (max-width: 768px) {
+        .about-content {
+            flex-direction: column; /* On mobile, flex direction changes */
+            padding: 25px;
+        }
+        .about-content img {
+            order: -1;
+            margin-right: 0;
+            margin-bottom: 25px;
+            width: 100%;
+            max-width: 100%;
+            height: auto;
+        }
+    }
+
+    /* --- Contact Section --- */
+    .contact {
+        text-align: center;
+        padding: 50px 20px; /* Adjusted padding for section */
+        background-color: #f4f4f4; /* Match body background for continuity */
+        border-top: 1px solid #eee;
+    }
+    .contact h2 {
+        font-size: 2.5em;
+        margin-bottom: 20px;
+        color: #333;
+    }
+    .contact p {
+        margin: 10px 0;
+        font-size: 1.1em;
+        color: #666;
+    }
+    .contact a {
+        color: #007bff;
+        text-decoration: none;
+    }
+    .contact a:hover {
+        text-decoration: underline;
+    }
+    .contact-content {
+        max-width: 650px; /* Slightly wider max-width for contact card */
+        margin: 0 auto;
+        
+        /* Card design */
+        background-color: white; /* White background for the card */
+        border-radius: 12px; /* Rounded corners for the card */
+        box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15); /* Pronounced shadow for elevation */
+        padding: 40px; /* Internal padding for the card content */
+        margin-top: 30px; /* Add top margin to separate from heading */
+        margin-bottom: 30px; /* Add bottom margin to separate from footer */
+    }
+
+    /* Footer (unchanged for this request) */
+    .site-footer {
+    background: #111;
+    color: #ccc;
+    padding: 40px 20px;
     text-align: center;
-    padding: 50px 20px; /* Adjusted padding for section */
-    background-color: #f4f4f4; /* Match body background for continuity */
-    border-top: 1px solid #eee;
-}
-.contact h2 {
-    font-size: 2.5em;
-    margin-bottom: 20px;
-    color: #333;
-}
-.contact p {
-    margin: 10px 0;
-    font-size: 1.1em;
-    color: #666;
-}
-.contact a {
-    color: #007bff;
-    text-decoration: none;
-}
-.contact a:hover {
-    text-decoration: underline;
-}
-.contact-content {
-    max-width: 650px; /* Slightly wider max-width for contact card */
+    font-size: 0.9em;
+    border-top: 1px solid #444;
+    }
+
+    .footer-content {
+    max-width: 800px;
     margin: 0 auto;
-    
-    /* Card design */
-    background-color: white; /* White background for the card */
-    border-radius: 12px; /* Rounded corners for the card */
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15); /* Pronounced shadow for elevation */
-    padding: 40px; /* Internal padding for the card content */
-    margin-top: 30px; /* Add top margin to separate from heading */
-    margin-bottom: 30px; /* Add bottom margin to separate from footer */
-}
+    }
 
-/* Footer (unchanged for this request) */
-.site-footer {
-  background: #111;
-  color: #ccc;
-  padding: 40px 20px;
-  text-align: center;
-  font-size: 0.9em;
-  border-top: 1px solid #444;
-}
+    .footer-content p {
+    margin-bottom: 10px;
+    }
 
-.footer-content {
-  max-width: 800px;
-  margin: 0 auto;
-}
+    .footer-socials a {
+    margin: 0 10px;
+    color: #ccc;
+    text-decoration: none;
+    font-size: 1.2em;
+    transition: color 0.3s ease;
+    }
 
-.footer-content p {
-  margin-bottom: 10px;
-}
-
-.footer-socials a {
-  margin: 0 10px;
-  color: #ccc;
-  text-decoration: none;
-  font-size: 1.2em;
-  transition: color 0.3s ease;
-}
-
-.footer-socials a:hover {
-  color: white;
-}
-
-
-/* More Button (unchanged for this request) */
-.more-button-container {
-    text-align: center;
-    padding: 20px;
-}
-.more-button {
-    padding: 10px 20px;
-    background-color: #808080; 
+    .footer-socials a:hover {
     color: white;
-    border: none;
-    border-radius: 10px;
-    cursor: pointer;
-    font-size: 1em;
-    transition: background-color 0.3s ease; 
-}
-.more-button:hover {
-    background-color: #585858; 
-}
-
-/* Reveal Animation (unchanged for this request) */
+    }
 
 
-/* Original .lightbox:target to keep its functionality */
-.lightbox:target {
-    display: flex;
-}
+    /* More Button (unchanged for this request) */
+    .more-button-container {
+        text-align: center;
+        padding: 20px;
+    }
+    .more-button {
+        padding: 10px 20px;
+        background-color: #808080; 
+        color: white;
+        border: none;
+        border-radius: 10px;
+        cursor: pointer;
+        font-size: 1em;
+        transition: background-color 0.3s ease; 
+    }
+    .more-button:hover {
+        background-color: #585858; 
+    }
+
+    /* Reveal Animation (unchanged for this request) */
+
+
+    /* Original .lightbox:target to keep its functionality */
+    .lightbox:target {
+        display: flex;
+    }
