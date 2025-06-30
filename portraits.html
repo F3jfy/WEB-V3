@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adam Fejfar - Portfolio</title>
+    <link rel="stylesheet" href="index.css">
+     <script src="script.js"></script>
+</head>
+<body>
+     <div class="navbar">
+    <img src="logo.png" alt="Logo">
+    
+    <button class="hamburger" aria-label="Toggle navigation menu">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+    </button>
+
+    <ul class="nav-links">
+        <a href="index.html">Úvod</a>
+            <a href="index.html#about">O mně</a>
+            <a href="portfolio.html">Portfolio</a>
+            <a href="index.html#contact">Kontakt</a>
+    </ul>
+</div>
+
+    <header>
+        <div class="hero-image" style="background-image: url('portraitmain.webp');">
+    <h2>PORTRAITS</h2>
+  </div>
+    </header>
+
+<section class="gallery-2">
+<div class="image-container"><img src="portrait1.webp" alt="911.4" onclick="openLightbox('portrait1.webp')" loading="lazy"></div>
+<div class="image-container"><img src="portrait2.webp" alt="911.4" onclick="openLightbox('portrait2.webp')" loading="lazy"></div>
+<div class="image-container"><img src="portrait3.webp" alt="911.4" onclick="openLightbox('portrait3.webp')" loading="lazy"></div>
+<div class="image-container"><img src="portrait4.webp" alt="911.4" onclick="openLightbox('portrait4.webp')" loading="lazy"></div>
+<div class="image-container"><img src="portrait5.webp" alt="911.4" onclick="openLightbox('portrait5.webp')" loading="lazy"></div>
+<div class="image-container"><img src="portrait6.webp" alt="911.4" onclick="openLightbox('portrait6.webp')" loading="lazy"></div>
+<div class="image-container"><img src="portrait7.webp" alt="911.4" onclick="openLightbox('portrait7.webp')" loading="lazy"></div>
+<div class="image-container"><img src="portrait8.webp" alt="911.4" onclick="openLightbox('portrait8.webp')" loading="lazy"></div>
+<div class="image-container"><img src="portrait9.webp" alt="911.4" onclick="openLightbox('portrait9.webp')" loading="lazy"></div>
+<div class="image-container"><img src="portrait10.webp" alt="911.4" onclick="openLightbox('portrait10.webp')" loading="lazy"></div>
+<div class="image-container"><img src="portrait11.webp" alt="911.4" onclick="openLightbox('portrait11.webp')" loading="lazy"></div>
+<div class="image-container"><img src="portrait12.webp" alt="911.4" onclick="openLightbox('portrait12.webp')" loading="lazy"></div>
+
+
+
+
+</section>
+
+
+    
+        <div id="lightbox" class="lightbox">
+    <span id="lightbox-close" class="lightbox-close">&times;</span>
+    <div class="lightbox-content">
+     <img id="lightbox-img" class="lightbox-img" src="" alt="Preview">
+        </div>
+    </div>
+    <footer class="site-footer">
+  <div class="footer-content">
+    <p>&copy; 2025 Adam Fejfar · Všechna práva vyhrazena</p>
+    <div class="footer-socials">
+      <a href="https://www.instagram.com/photos_by_fejfy/?hl=cs" target="_blank" aria-label="Instagram">📸</a>
+      <a href="mailto:info@adamfejfar.com" aria-label="Email">✉️</a>
+      <a href="https://www.adamfejfar.com" target="_blank" aria-label="GitHub">💻</a>
+    </div>
+  </div>
+</footer>
+
+    <div class="lightbox" id="lightbox">
+        <img src="" alt="Zvětšená fotografie" id="lightbox-img">
+    </div>
+
+    <script>
+        function openLightbox(imgSrc) {
+            const lightbox = document.getElementById('lightbox');
+            const lightboxImg = document.getElementById('lightbox-img');
+            lightboxImg.src = imgSrc;
+            lightbox.classList.add('active');
+            lightbox.onclick = function() {
+                lightbox.classList.remove('active');
+            }
+        }
+    </script>
+</body>
+</html>
