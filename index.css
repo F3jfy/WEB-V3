@@ -665,15 +665,7 @@ header {
 }
 
 /* Reveal Animation (unchanged for this request) */
-.reveal {
-    opacity: 0;
-    transform: translateY(40px);
-    transition: opacity 0.4s ease, transform 0.4s ease;
-}
-.reveal.visible {
-    opacity: 1;
-    transform: translateY(0);
-}
+
 
 /* Original .lightbox:target to keep its functionality */
 .lightbox:target {
