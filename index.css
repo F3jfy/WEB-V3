@@ -1,44 +1,58 @@
-/* Base Styles - Keep as is or adjust as needed */
-body {
-    font-family: 'Roboto', sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f4f4f4; /* A light background for contrast with cards */
+/* Reset and base styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html {
+  scroll-behavior: smooth;
 }
 
-/* Navbar (unchanged for this request) */
+body {
+  font-family: 'Roboto', sans-serif; /* Using Roboto as per your HTML link */
+  background-color: #f4f4f4; /* A light background for contrast with cards */
+  color: #333; /* Default text color */
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  transition: color 0.2s ease;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+/* --- Navbar --- */
 .navbar {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
-    /* Keep this for the color base, but ensure it's not fully opaque */
     background-color: rgba(0, 0, 0, 0.356); /* Teal Green with slight opacity */
-    color: rgb(255, 255, 255);
-    
-    /* Re-add these for the frosted effect */
     backdrop-filter: blur(8px);
     -webkit-backdrop-filter: blur(8px); /* For Safari compatibility */
-    
     color: white;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    z-index: 100;
+    z-index: 100; /* High z-index for navbar */
     transition: background-color 0.3s ease, backdrop-filter 0.3s ease, box-shadow 0.3s ease;
     padding: 10px 20px;
     box-shadow: 0 3px 6px rgba(0, 0, 0, 0.25);
 }
 
 .navbar.active { /* This class will be added to the navbar when the hamburger is clicked */
-    background-color: rgba(0, 0, 0, 0.265); /* White background with slight transparency */
+    background-color: rgba(255, 255, 255, 0.9); /* White background with slight transparency */
     backdrop-filter: blur(10px); /* Adjust blur as desired for white background */
     -webkit-backdrop-filter: blur(10px);
     color: #333; /* Black text for the navbar itself */
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Slightly stronger shadow for contrast */
 }
-
-
 
 .navbar img {
     height: 50px; /* Adjust height if needed */
@@ -49,7 +63,6 @@ body {
 .nav-links {
     list-style: none; /* Removes bullet points */
     margin: 0;
-    
     padding: 0;
     display: flex; /* Arranges links horizontally */
     gap: 15px; /* Spacing between links */
@@ -88,7 +101,7 @@ body {
     cursor: pointer;
     padding: 0;
     z-index: 101; /* Ensures it's above other elements if it were visible */
-    
+    margin-right: 20px; /* Small margin for desktop */
 }
 
 .hamburger .bar {
@@ -97,83 +110,113 @@ body {
     background-color: white;
     border-radius: 2px;
     transition: all 0.3s ease-in-out; /* For the animation */
-    background-color: white;
-}
-.navbar.active .hamburger .bar {
-    background-color: #ffffff; /* Black bars when navbar is white */
 }
 
-/* --- Responsive Styles for Mobile (Hamburger Visible) --- */
+.navbar.active .hamburger .bar {
+    background-color: #333; /* Darker bars when the navbar itself becomes lighter */
+}
+
+/* Hamburger Animation States (when .active class is applied by JS) */
+.hamburger.active .bar:nth-child(1) {
+    transform: rotate(45deg) translate(7px, 7px);
+}
+
+.hamburger.active .bar:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger.active .bar:nth-child(3) {
+    transform: rotate(-45deg) translate(7px, -7px);
+}
+
+/* --- Menu Overlay for Blur Effect --- */
+#menu-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.4); /* A semi-transparent black for darkening */
+    backdrop-filter: blur(8px); /* The magic blur effect */
+    -webkit-backdrop-filter: blur(8px); /* Safari compatibility */
+    opacity: 0; /* Hidden by default */
+    visibility: hidden; /* Hidden by default */
+    transition: opacity 0.3s ease, visibility 0.3s ease; /* Smooth transition */
+    z-index: 90; /* BELOW the mobile menu, but above everything else */
+}
+
+#menu-overlay.active {
+    opacity: 1; /* Fully visible */
+    visibility: visible; /* Make it interactive */
+}
+
+/* --- Responsive Styles for Mobile (Hamburger Visible, Mobile Menu) --- */
 @media (max-width: 768px) { /* Adjust breakpoint as needed for your mobile size */
     .navbar {
         padding: 10px 15px; /* Slightly less padding on mobile */
-        margin-right: 20px;
     }
 
     .hamburger {
-    margin-right: 30px; /* Push it left */
-}
+        display: flex; /* Show the button */
+        margin-right: 15px; /* Adjust margin for mobile */
+    }
 
-    /* Hide the regular nav links and show the hamburger */
+    /* Mobile navigation links (this is your mobile menu) */
     .nav-links {
-    max-height: 0;
-    overflow: hidden;
-    flex-direction: column;
-    position: absolute;
-    top: 100%;
-    left: 0;
-    width: 100%;
-    background-color: rgba(0, 0, 0, 0.397);
-    color: #ffffff;
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
-    border-bottom-left-radius: 10px;
-    border-bottom-right-radius: 10px;
-    opacity: 0;
-    pointer-events: none;
-    transition: max-height 0.4s ease, opacity 0.4s ease;
-}
+        /* Removed max-height: 0; and overflow: hidden; */
+        flex-direction: column;
+        position: fixed; /* Use fixed for full screen coverage */
+        top: 0; /* Align to top */
+        right: -100vw; /* Off-screen to the right, hidden by default */
+        width: 70vw; /* Take 70% of the viewport width */
+        height: 100vh; /* Full viewport height */
+        background-color: #fff; /* Solid white background for the menu panel */
+        color: #333; /* Dark text for the menu items */
+        box-shadow: -4px 0 12px rgba(0, 0, 0, 0.2); /* Shadow on the left edge */
+        opacity: 0; /* Hidden by default for smooth fade in */
+        pointer-events: none; /* Prevents interaction when hidden */
+        transition: right 0.4s ease, opacity 0.4s ease; /* Transition for sliding and fading */
+        z-index: 95; /* Ensure this is higher than #menu-overlay's z-index (90) */
+        padding-top: 80px; /* Space from the top to account for navbar, preventing links from being behind it */
+        padding-bottom: 20px; /* Some padding at the bottom */
+        align-items: center; /* Center items horizontally in the column */
+    }
 
-.nav-links.active {
-    max-height: 500px; /* Arbitrary large value */
-    opacity: 1;
-    pointer-events: auto;
-}
-
+    .nav-links.active {
+        right: 0; /* Slides the menu into view */
+        opacity: 1; /* Fades the menu in */
+        pointer-events: auto; /* Allows interaction when active */
+    }
 
     .nav-links li {
         text-align: center;
+        width: 100%; /* Ensure list item takes full width for link styling */
         margin-bottom: 10px; /* Space between stacked links */
     }
 
     .nav-links a {
-    display: block;
-    padding: 14px 20px;
-    font-size: 1.1rem;
-    width: 90%;
-    margin: 0 auto;
-    background-color: rgba(255, 255, 255, 0.055);
-    color: white;
-    text-align: center;
-    border-radius: 8px;
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    transition: background-color 0.3s ease, backdrop-filter 0.3s ease;
-}
-
-.nav-links a:hover {
-    background-color: rgba(255, 255, 255, 0.12);
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
-}
-
-
-    /* Show hamburger icon on mobile */
-    .hamburger {
-        display: flex; /* Show the button */
+        display: block;
+        padding: 14px 20px;
+        font-size: 1.1rem;
+        width: 90%; /* Links take 90% width of the menu panel */
+        margin: 0 auto; /* Center the links */
+        background-color: #f3f4f6; /* Light grey background for each menu item */
+        color: #111827; /* Dark text for readability */
+        text-align: center;
+        border-radius: 8px;
+        border: 1px solid #e5e7eb; /* Subtle border */
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05); /* Soft shadow */
+        transition: all 0.3s ease; /* Smooth transitions for hover */
     }
 
-    /* Hamburger Animation States (when .active class is applied by JS) */
+    .nav-links a:hover {
+        background-color: #e0e2e6; /* Slightly darker on hover */
+        color: #000; /* Make text a bit darker on hover */
+        transform: translateY(-2px); /* Slight lift effect */
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* More pronounced shadow on hover */
+    }
 }
-
+    
 /* Header & Hero Image (unchanged for this request) */
 header {
     position: relative;
