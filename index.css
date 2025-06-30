@@ -13,7 +13,7 @@ body {
     left: 0;
     width: 100%;
     /* Keep this for the color base, but ensure it's not fully opaque */
-    background-color: rgba(0, 0, 0, 0.265); /* Teal Green with slight opacity */
+    background-color: rgba(0, 0, 0, 0.356); /* Teal Green with slight opacity */
     color: rgb(255, 255, 255);
     
     /* Re-add these for the frosted effect */
